@@ -1,0 +1,599 @@
+garvit@garvit-VirtualBox:~$ mongo
+MongoDB shell version v3.6.8
+connecting to: mongodb://127.0.0.1:27017
+Implicit session: session { "id" : UUID("9dce7ffe-4457-4571-ac7c-c4dfe491b80b") }
+MongoDB server version: 3.6.8
+Server has startup warnings: 
+2021-04-24T20:37:19.380+0530 I STORAGE  [initandlisten] 
+2021-04-24T20:37:19.380+0530 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2021-04-24T20:37:19.380+0530 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] 
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] 
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use test
+switched to db test
+> exit
+bye
+garvit@garvit-VirtualBox:~$ mongoimport --type csv -d android-games -c inventory --headerline --drop /home/garvit/Downloads/android-games.csv
+2021-04-25T20:53:20.891+0530	connected to: localhost
+2021-04-25T20:53:20.893+0530	dropping: android-games.inventory
+2021-04-25T20:53:21.054+0530	imported 1730 documents
+garvit@garvit-VirtualBox:~$ mongoexport --db android-games -c inventory --out  /home/garvit/Downloads/android-games.csv
+2021-04-25T20:54:07.573+0530	connected to: localhost
+2021-04-25T20:54:07.810+0530	exported 1730 records
+garvit@garvit-VirtualBox:~$ mongo
+MongoDB shell version v3.6.8
+connecting to: mongodb://127.0.0.1:27017
+Implicit session: session { "id" : UUID("a2605709-56ad-4d29-9863-4a81496ddd1e") }
+MongoDB server version: 3.6.8
+Server has startup warnings: 
+2021-04-24T20:37:19.380+0530 I STORAGE  [initandlisten] 
+2021-04-24T20:37:19.380+0530 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2021-04-24T20:37:19.380+0530 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] 
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-04-24T20:37:31.469+0530 I CONTROL  [initandlisten] 
+> show dbs
+admin          0.000GB
+android-games  0.000GB
+config         0.000GB
+local          0.000GB
+> use android-games
+switched to db android-games
+> show collections
+inventory
+> db.inventory.find()
+{ "_id" : ObjectId("60858968bb28785ed56ef1eb"), "rank" : 1, "title" : "Garena Free Fire - The Cobra", "total ratings" : 80678661, "installs" : "500.0 M", "average rating" : 4.33, "growth (30 days)" : 2.9, "growth (60 days)" : 7.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 61935712, "4 star ratings" : 4478738, "3 star ratings" : 2795172, "2 star ratings" : 1814999, "1 star ratings" : 9654037, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ec"), "rank" : 2, "title" : "PUBG MOBILE: Graffiti Prank", "total ratings" : 35971961, "installs" : "100.0 M", "average rating" : 4.24, "growth (30 days)" : 2, "growth (60 days)" : 3.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 26670566, "4 star ratings" : 2109631, "3 star ratings" : 1352610, "2 star ratings" : 893674, "1 star ratings" : 4945478, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ed"), "rank" : 3, "title" : "Mobile Legends: Bang Bang", "total ratings" : 25836869, "installs" : "100.0 M", "average rating" : 4.08, "growth (30 days)" : 1.6, "growth (60 days)" : 3.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 17850942, "4 star ratings" : 1796761, "3 star ratings" : 1066095, "2 star ratings" : 725429, "1 star ratings" : 4397640, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ee"), "rank" : 4, "title" : "Brawl Stars", "total ratings" : 17181659, "installs" : "100.0 M", "average rating" : 4.27, "growth (30 days)" : 4.1, "growth (60 days)" : 6.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 12493668, "4 star ratings" : 1474319, "3 star ratings" : 741410, "2 star ratings" : 383478, "1 star ratings" : 2088781, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ef"), "rank" : 5, "title" : "Sniper 3D: Fun Free Online FPS Shooting Game", "total ratings" : 14237554, "installs" : "100.0 M", "average rating" : 4.33, "growth (30 days)" : 0.8, "growth (60 days)" : 1.8, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 9657878, "4 star ratings" : 2124544, "3 star ratings" : 1034025, "2 star ratings" : 375159, "1 star ratings" : 1045945, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f0"), "rank" : 6, "title" : "Shadow Fight 2", "total ratings" : 14048931, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.6, "growth (60 days)" : 1.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 11532143, "4 star ratings" : 961926, "3 star ratings" : 448184, "2 star ratings" : 217044, "1 star ratings" : 889631, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f1"), "rank" : 7, "title" : "Call of Duty®: Mobile - Day of Reckoning", "total ratings" : 13020115, "installs" : "100.0 M", "average rating" : 4.47, "growth (30 days)" : 2.8, "growth (60 days)" : 5.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 10079925, "4 star ratings" : 1210326, "3 star ratings" : 488294, "2 star ratings" : 261610, "1 star ratings" : 979958, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f2"), "rank" : 8, "title" : "Among Us", "total ratings" : 11298789, "installs" : "100.0 M", "average rating" : 3.65, "growth (30 days)" : 6.3, "growth (60 days)" : 12.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6173970, "4 star ratings" : 1026476, "3 star ratings" : 770574, "2 star ratings" : 614021, "1 star ratings" : 2713745, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f3"), "rank" : 9, "title" : "Temple Run 2", "total ratings" : 9554877, "installs" : "500.0 M", "average rating" : 4.21, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6521348, "4 star ratings" : 996144, "3 star ratings" : 615544, "2 star ratings" : 343978, "1 star ratings" : 1077860, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f4"), "rank" : 10, "title" : "PUBG MOBILE LITE", "total ratings" : 7392911, "installs" : "100.0 M", "average rating" : 4.16, "growth (30 days)" : 1.3, "growth (60 days)" : 2.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 5231571, "4 star ratings" : 494013, "3 star ratings" : 343880, "2 star ratings" : 232468, "1 star ratings" : 1090976, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f5"), "rank" : 11, "title" : "slither.io", "total ratings" : 6475640, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0.4, "growth (60 days)" : 1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4089508, "4 star ratings" : 765605, "3 star ratings" : 486813, "2 star ratings" : 250455, "1 star ratings" : 883255, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f6"), "rank" : 12, "title" : "Gangstar Vegas: World of Crime", "total ratings" : 6203689, "installs" : "100.0 M", "average rating" : 4.3, "growth (30 days)" : 0.5, "growth (60 days)" : 1.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4466149, "4 star ratings" : 597997, "3 star ratings" : 313912, "2 star ratings" : 165629, "1 star ratings" : 660000, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f7"), "rank" : 13, "title" : "Pixel Gun 3D: FPS Shooter & Battle Royale", "total ratings" : 5651287, "installs" : "100.0 M", "average rating" : 4.15, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3855710, "4 star ratings" : 524170, "3 star ratings" : 321185, "2 star ratings" : 183340, "1 star ratings" : 766880, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f8"), "rank" : 14, "title" : "Bowmasters", "total ratings" : 5245027, "installs" : "100.0 M", "average rating" : 4.55, "growth (30 days)" : 2.3, "growth (60 days)" : 4.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4170692, "4 star ratings" : 464285, "3 star ratings" : 216008, "2 star ratings" : 93697, "1 star ratings" : 300341, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f9"), "rank" : 15, "title" : "Standoff 2", "total ratings" : 4457338, "installs" : "50.0 M", "average rating" : 4.54, "growth (30 days)" : 6.1, "growth (60 days)" : 13.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3611434, "4 star ratings" : 335328, "3 star ratings" : 123915, "2 star ratings" : 59903, "1 star ratings" : 326756, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fa"), "rank" : 16, "title" : "Crossy Road", "total ratings" : 4456347, "installs" : "100.0 M", "average rating" : 4.54, "growth (30 days)" : 0.1, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3378135, "4 star ratings" : 575185, "3 star ratings" : 232942, "2 star ratings" : 67203, "1 star ratings" : 202879, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fb"), "rank" : 17, "title" : "Banana Kong", "total ratings" : 4448938, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.5, "growth (60 days)" : 1.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3440564, "4 star ratings" : 524996, "3 star ratings" : 227009, "2 star ratings" : 72803, "1 star ratings" : 183564, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fc"), "rank" : 18, "title" : "Garena Liên Quân Mobile", "total ratings" : 4443546, "installs" : "50.0 M", "average rating" : 4.11, "growth (30 days)" : 2.1, "growth (60 days)" : 3.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3055909, "4 star ratings" : 371966, "3 star ratings" : 198693, "2 star ratings" : 100809, "1 star ratings" : 716166, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fd"), "rank" : 19, "title" : "Helix Jump", "total ratings" : 4260419, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2654404, "4 star ratings" : 542456, "3 star ratings" : 338551, "2 star ratings" : 178344, "1 star ratings" : 546662, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fe"), "rank" : 20, "title" : "War Robots. 6v6 Tactical Multiplayer Battles", "total ratings" : 4193941, "installs" : "50.0 M", "average rating" : 4, "growth (30 days)" : 0.3, "growth (60 days)" : 0.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2635805, "4 star ratings" : 449195, "3 star ratings" : 262329, "2 star ratings" : 160045, "1 star ratings" : 686564, "paid" : "False" }
+Type "it" for more
+> db.inventory.find({"rank":{$exists:true}})
+{ "_id" : ObjectId("60858968bb28785ed56ef1eb"), "rank" : 1, "title" : "Garena Free Fire - The Cobra", "total ratings" : 80678661, "installs" : "500.0 M", "average rating" : 4.33, "growth (30 days)" : 2.9, "growth (60 days)" : 7.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 61935712, "4 star ratings" : 4478738, "3 star ratings" : 2795172, "2 star ratings" : 1814999, "1 star ratings" : 9654037, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ec"), "rank" : 2, "title" : "PUBG MOBILE: Graffiti Prank", "total ratings" : 35971961, "installs" : "100.0 M", "average rating" : 4.24, "growth (30 days)" : 2, "growth (60 days)" : 3.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 26670566, "4 star ratings" : 2109631, "3 star ratings" : 1352610, "2 star ratings" : 893674, "1 star ratings" : 4945478, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ed"), "rank" : 3, "title" : "Mobile Legends: Bang Bang", "total ratings" : 25836869, "installs" : "100.0 M", "average rating" : 4.08, "growth (30 days)" : 1.6, "growth (60 days)" : 3.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 17850942, "4 star ratings" : 1796761, "3 star ratings" : 1066095, "2 star ratings" : 725429, "1 star ratings" : 4397640, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ee"), "rank" : 4, "title" : "Brawl Stars", "total ratings" : 17181659, "installs" : "100.0 M", "average rating" : 4.27, "growth (30 days)" : 4.1, "growth (60 days)" : 6.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 12493668, "4 star ratings" : 1474319, "3 star ratings" : 741410, "2 star ratings" : 383478, "1 star ratings" : 2088781, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ef"), "rank" : 5, "title" : "Sniper 3D: Fun Free Online FPS Shooting Game", "total ratings" : 14237554, "installs" : "100.0 M", "average rating" : 4.33, "growth (30 days)" : 0.8, "growth (60 days)" : 1.8, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 9657878, "4 star ratings" : 2124544, "3 star ratings" : 1034025, "2 star ratings" : 375159, "1 star ratings" : 1045945, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f0"), "rank" : 6, "title" : "Shadow Fight 2", "total ratings" : 14048931, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.6, "growth (60 days)" : 1.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 11532143, "4 star ratings" : 961926, "3 star ratings" : 448184, "2 star ratings" : 217044, "1 star ratings" : 889631, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f1"), "rank" : 7, "title" : "Call of Duty®: Mobile - Day of Reckoning", "total ratings" : 13020115, "installs" : "100.0 M", "average rating" : 4.47, "growth (30 days)" : 2.8, "growth (60 days)" : 5.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 10079925, "4 star ratings" : 1210326, "3 star ratings" : 488294, "2 star ratings" : 261610, "1 star ratings" : 979958, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f2"), "rank" : 8, "title" : "Among Us", "total ratings" : 11298789, "installs" : "100.0 M", "average rating" : 3.65, "growth (30 days)" : 6.3, "growth (60 days)" : 12.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6173970, "4 star ratings" : 1026476, "3 star ratings" : 770574, "2 star ratings" : 614021, "1 star ratings" : 2713745, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f3"), "rank" : 9, "title" : "Temple Run 2", "total ratings" : 9554877, "installs" : "500.0 M", "average rating" : 4.21, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6521348, "4 star ratings" : 996144, "3 star ratings" : 615544, "2 star ratings" : 343978, "1 star ratings" : 1077860, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f4"), "rank" : 10, "title" : "PUBG MOBILE LITE", "total ratings" : 7392911, "installs" : "100.0 M", "average rating" : 4.16, "growth (30 days)" : 1.3, "growth (60 days)" : 2.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 5231571, "4 star ratings" : 494013, "3 star ratings" : 343880, "2 star ratings" : 232468, "1 star ratings" : 1090976, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f5"), "rank" : 11, "title" : "slither.io", "total ratings" : 6475640, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0.4, "growth (60 days)" : 1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4089508, "4 star ratings" : 765605, "3 star ratings" : 486813, "2 star ratings" : 250455, "1 star ratings" : 883255, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f6"), "rank" : 12, "title" : "Gangstar Vegas: World of Crime", "total ratings" : 6203689, "installs" : "100.0 M", "average rating" : 4.3, "growth (30 days)" : 0.5, "growth (60 days)" : 1.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4466149, "4 star ratings" : 597997, "3 star ratings" : 313912, "2 star ratings" : 165629, "1 star ratings" : 660000, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f7"), "rank" : 13, "title" : "Pixel Gun 3D: FPS Shooter & Battle Royale", "total ratings" : 5651287, "installs" : "100.0 M", "average rating" : 4.15, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3855710, "4 star ratings" : 524170, "3 star ratings" : 321185, "2 star ratings" : 183340, "1 star ratings" : 766880, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f8"), "rank" : 14, "title" : "Bowmasters", "total ratings" : 5245027, "installs" : "100.0 M", "average rating" : 4.55, "growth (30 days)" : 2.3, "growth (60 days)" : 4.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4170692, "4 star ratings" : 464285, "3 star ratings" : 216008, "2 star ratings" : 93697, "1 star ratings" : 300341, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f9"), "rank" : 15, "title" : "Standoff 2", "total ratings" : 4457338, "installs" : "50.0 M", "average rating" : 4.54, "growth (30 days)" : 6.1, "growth (60 days)" : 13.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3611434, "4 star ratings" : 335328, "3 star ratings" : 123915, "2 star ratings" : 59903, "1 star ratings" : 326756, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fa"), "rank" : 16, "title" : "Crossy Road", "total ratings" : 4456347, "installs" : "100.0 M", "average rating" : 4.54, "growth (30 days)" : 0.1, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3378135, "4 star ratings" : 575185, "3 star ratings" : 232942, "2 star ratings" : 67203, "1 star ratings" : 202879, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fb"), "rank" : 17, "title" : "Banana Kong", "total ratings" : 4448938, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.5, "growth (60 days)" : 1.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3440564, "4 star ratings" : 524996, "3 star ratings" : 227009, "2 star ratings" : 72803, "1 star ratings" : 183564, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fc"), "rank" : 18, "title" : "Garena Liên Quân Mobile", "total ratings" : 4443546, "installs" : "50.0 M", "average rating" : 4.11, "growth (30 days)" : 2.1, "growth (60 days)" : 3.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3055909, "4 star ratings" : 371966, "3 star ratings" : 198693, "2 star ratings" : 100809, "1 star ratings" : 716166, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fd"), "rank" : 19, "title" : "Helix Jump", "total ratings" : 4260419, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2654404, "4 star ratings" : 542456, "3 star ratings" : 338551, "2 star ratings" : 178344, "1 star ratings" : 546662, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fe"), "rank" : 20, "title" : "War Robots. 6v6 Tactical Multiplayer Battles", "total ratings" : 4193941, "installs" : "50.0 M", "average rating" : 4, "growth (30 days)" : 0.3, "growth (60 days)" : 0.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2635805, "4 star ratings" : 449195, "3 star ratings" : 262329, "2 star ratings" : 160045, "1 star ratings" : 686564, "paid" : "False" }
+Type "it" for more
+> db.inventory.find({"rank":{$type:1}})
+> db.inventory.find({"star ratings":{$type:2}})
+> db.inventory.find({"rank":{$regex:"20"}})
+> db.inventory.find({"rank":{$type:20}})
+Error: error: {
+	"ok" : 0,
+	"errmsg" : "Invalid numerical type code: 20",
+	"code" : 2,
+	"codeName" : "BadValue"
+}
+> db.inventory.find({"installs":{$regex:"M"}})
+{ "_id" : ObjectId("60858968bb28785ed56ef1eb"), "rank" : 1, "title" : "Garena Free Fire - The Cobra", "total ratings" : 80678661, "installs" : "500.0 M", "average rating" : 4.33, "growth (30 days)" : 2.9, "growth (60 days)" : 7.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 61935712, "4 star ratings" : 4478738, "3 star ratings" : 2795172, "2 star ratings" : 1814999, "1 star ratings" : 9654037, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ec"), "rank" : 2, "title" : "PUBG MOBILE: Graffiti Prank", "total ratings" : 35971961, "installs" : "100.0 M", "average rating" : 4.24, "growth (30 days)" : 2, "growth (60 days)" : 3.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 26670566, "4 star ratings" : 2109631, "3 star ratings" : 1352610, "2 star ratings" : 893674, "1 star ratings" : 4945478, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ed"), "rank" : 3, "title" : "Mobile Legends: Bang Bang", "total ratings" : 25836869, "installs" : "100.0 M", "average rating" : 4.08, "growth (30 days)" : 1.6, "growth (60 days)" : 3.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 17850942, "4 star ratings" : 1796761, "3 star ratings" : 1066095, "2 star ratings" : 725429, "1 star ratings" : 4397640, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ee"), "rank" : 4, "title" : "Brawl Stars", "total ratings" : 17181659, "installs" : "100.0 M", "average rating" : 4.27, "growth (30 days)" : 4.1, "growth (60 days)" : 6.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 12493668, "4 star ratings" : 1474319, "3 star ratings" : 741410, "2 star ratings" : 383478, "1 star ratings" : 2088781, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ef"), "rank" : 5, "title" : "Sniper 3D: Fun Free Online FPS Shooting Game", "total ratings" : 14237554, "installs" : "100.0 M", "average rating" : 4.33, "growth (30 days)" : 0.8, "growth (60 days)" : 1.8, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 9657878, "4 star ratings" : 2124544, "3 star ratings" : 1034025, "2 star ratings" : 375159, "1 star ratings" : 1045945, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f0"), "rank" : 6, "title" : "Shadow Fight 2", "total ratings" : 14048931, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.6, "growth (60 days)" : 1.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 11532143, "4 star ratings" : 961926, "3 star ratings" : 448184, "2 star ratings" : 217044, "1 star ratings" : 889631, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f1"), "rank" : 7, "title" : "Call of Duty®: Mobile - Day of Reckoning", "total ratings" : 13020115, "installs" : "100.0 M", "average rating" : 4.47, "growth (30 days)" : 2.8, "growth (60 days)" : 5.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 10079925, "4 star ratings" : 1210326, "3 star ratings" : 488294, "2 star ratings" : 261610, "1 star ratings" : 979958, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f2"), "rank" : 8, "title" : "Among Us", "total ratings" : 11298789, "installs" : "100.0 M", "average rating" : 3.65, "growth (30 days)" : 6.3, "growth (60 days)" : 12.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6173970, "4 star ratings" : 1026476, "3 star ratings" : 770574, "2 star ratings" : 614021, "1 star ratings" : 2713745, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f3"), "rank" : 9, "title" : "Temple Run 2", "total ratings" : 9554877, "installs" : "500.0 M", "average rating" : 4.21, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6521348, "4 star ratings" : 996144, "3 star ratings" : 615544, "2 star ratings" : 343978, "1 star ratings" : 1077860, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f4"), "rank" : 10, "title" : "PUBG MOBILE LITE", "total ratings" : 7392911, "installs" : "100.0 M", "average rating" : 4.16, "growth (30 days)" : 1.3, "growth (60 days)" : 2.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 5231571, "4 star ratings" : 494013, "3 star ratings" : 343880, "2 star ratings" : 232468, "1 star ratings" : 1090976, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f5"), "rank" : 11, "title" : "slither.io", "total ratings" : 6475640, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0.4, "growth (60 days)" : 1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4089508, "4 star ratings" : 765605, "3 star ratings" : 486813, "2 star ratings" : 250455, "1 star ratings" : 883255, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f6"), "rank" : 12, "title" : "Gangstar Vegas: World of Crime", "total ratings" : 6203689, "installs" : "100.0 M", "average rating" : 4.3, "growth (30 days)" : 0.5, "growth (60 days)" : 1.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4466149, "4 star ratings" : 597997, "3 star ratings" : 313912, "2 star ratings" : 165629, "1 star ratings" : 660000, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f7"), "rank" : 13, "title" : "Pixel Gun 3D: FPS Shooter & Battle Royale", "total ratings" : 5651287, "installs" : "100.0 M", "average rating" : 4.15, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3855710, "4 star ratings" : 524170, "3 star ratings" : 321185, "2 star ratings" : 183340, "1 star ratings" : 766880, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f8"), "rank" : 14, "title" : "Bowmasters", "total ratings" : 5245027, "installs" : "100.0 M", "average rating" : 4.55, "growth (30 days)" : 2.3, "growth (60 days)" : 4.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4170692, "4 star ratings" : 464285, "3 star ratings" : 216008, "2 star ratings" : 93697, "1 star ratings" : 300341, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f9"), "rank" : 15, "title" : "Standoff 2", "total ratings" : 4457338, "installs" : "50.0 M", "average rating" : 4.54, "growth (30 days)" : 6.1, "growth (60 days)" : 13.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3611434, "4 star ratings" : 335328, "3 star ratings" : 123915, "2 star ratings" : 59903, "1 star ratings" : 326756, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fa"), "rank" : 16, "title" : "Crossy Road", "total ratings" : 4456347, "installs" : "100.0 M", "average rating" : 4.54, "growth (30 days)" : 0.1, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3378135, "4 star ratings" : 575185, "3 star ratings" : 232942, "2 star ratings" : 67203, "1 star ratings" : 202879, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fb"), "rank" : 17, "title" : "Banana Kong", "total ratings" : 4448938, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.5, "growth (60 days)" : 1.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3440564, "4 star ratings" : 524996, "3 star ratings" : 227009, "2 star ratings" : 72803, "1 star ratings" : 183564, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fc"), "rank" : 18, "title" : "Garena Liên Quân Mobile", "total ratings" : 4443546, "installs" : "50.0 M", "average rating" : 4.11, "growth (30 days)" : 2.1, "growth (60 days)" : 3.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3055909, "4 star ratings" : 371966, "3 star ratings" : 198693, "2 star ratings" : 100809, "1 star ratings" : 716166, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fd"), "rank" : 19, "title" : "Helix Jump", "total ratings" : 4260419, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2654404, "4 star ratings" : 542456, "3 star ratings" : 338551, "2 star ratings" : 178344, "1 star ratings" : 546662, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fe"), "rank" : 20, "title" : "War Robots. 6v6 Tactical Multiplayer Battles", "total ratings" : 4193941, "installs" : "50.0 M", "average rating" : 4, "growth (30 days)" : 0.3, "growth (60 days)" : 0.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2635805, "4 star ratings" : 449195, "3 star ratings" : 262329, "2 star ratings" : 160045, "1 star ratings" : 686564, "paid" : "False" }
+Type "it" for more
+> db.inventory.find({"title":{$regex:"Bowmasters"}})
+{ "_id" : ObjectId("60858968bb28785ed56ef1f8"), "rank" : 14, "title" : "Bowmasters", "total ratings" : 5245027, "installs" : "100.0 M", "average rating" : 4.55, "growth (30 days)" : 2.3, "growth (60 days)" : 4.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4170692, "4 star ratings" : 464285, "3 star ratings" : 216008, "2 star ratings" : 93697, "1 star ratings" : 300341, "paid" : "False" }
+> db.inventory.find().pretty()
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1eb"),
+	"rank" : 1,
+	"title" : "Garena Free Fire - The Cobra",
+	"total ratings" : 80678661,
+	"installs" : "500.0 M",
+	"average rating" : 4.33,
+	"growth (30 days)" : 2.9,
+	"growth (60 days)" : 7.9,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 61935712,
+	"4 star ratings" : 4478738,
+	"3 star ratings" : 2795172,
+	"2 star ratings" : 1814999,
+	"1 star ratings" : 9654037,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1ec"),
+	"rank" : 2,
+	"title" : "PUBG MOBILE: Graffiti Prank",
+	"total ratings" : 35971961,
+	"installs" : "100.0 M",
+	"average rating" : 4.24,
+	"growth (30 days)" : 2,
+	"growth (60 days)" : 3.1,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 26670566,
+	"4 star ratings" : 2109631,
+	"3 star ratings" : 1352610,
+	"2 star ratings" : 893674,
+	"1 star ratings" : 4945478,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1ed"),
+	"rank" : 3,
+	"title" : "Mobile Legends: Bang Bang",
+	"total ratings" : 25836869,
+	"installs" : "100.0 M",
+	"average rating" : 4.08,
+	"growth (30 days)" : 1.6,
+	"growth (60 days)" : 3.3,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 17850942,
+	"4 star ratings" : 1796761,
+	"3 star ratings" : 1066095,
+	"2 star ratings" : 725429,
+	"1 star ratings" : 4397640,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1ee"),
+	"rank" : 4,
+	"title" : "Brawl Stars",
+	"total ratings" : 17181659,
+	"installs" : "100.0 M",
+	"average rating" : 4.27,
+	"growth (30 days)" : 4.1,
+	"growth (60 days)" : 6.6,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 12493668,
+	"4 star ratings" : 1474319,
+	"3 star ratings" : 741410,
+	"2 star ratings" : 383478,
+	"1 star ratings" : 2088781,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1ef"),
+	"rank" : 5,
+	"title" : "Sniper 3D: Fun Free Online FPS Shooting Game",
+	"total ratings" : 14237554,
+	"installs" : "100.0 M",
+	"average rating" : 4.33,
+	"growth (30 days)" : 0.8,
+	"growth (60 days)" : 1.8,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 9657878,
+	"4 star ratings" : 2124544,
+	"3 star ratings" : 1034025,
+	"2 star ratings" : 375159,
+	"1 star ratings" : 1045945,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f0"),
+	"rank" : 6,
+	"title" : "Shadow Fight 2",
+	"total ratings" : 14048931,
+	"installs" : "100.0 M",
+	"average rating" : 4.57,
+	"growth (30 days)" : 0.6,
+	"growth (60 days)" : 1.5,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 11532143,
+	"4 star ratings" : 961926,
+	"3 star ratings" : 448184,
+	"2 star ratings" : 217044,
+	"1 star ratings" : 889631,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f1"),
+	"rank" : 7,
+	"title" : "Call of Duty®: Mobile - Day of Reckoning",
+	"total ratings" : 13020115,
+	"installs" : "100.0 M",
+	"average rating" : 4.47,
+	"growth (30 days)" : 2.8,
+	"growth (60 days)" : 5.1,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 10079925,
+	"4 star ratings" : 1210326,
+	"3 star ratings" : 488294,
+	"2 star ratings" : 261610,
+	"1 star ratings" : 979958,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f2"),
+	"rank" : 8,
+	"title" : "Among Us",
+	"total ratings" : 11298789,
+	"installs" : "100.0 M",
+	"average rating" : 3.65,
+	"growth (30 days)" : 6.3,
+	"growth (60 days)" : 12.3,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 6173970,
+	"4 star ratings" : 1026476,
+	"3 star ratings" : 770574,
+	"2 star ratings" : 614021,
+	"1 star ratings" : 2713745,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f3"),
+	"rank" : 9,
+	"title" : "Temple Run 2",
+	"total ratings" : 9554877,
+	"installs" : "500.0 M",
+	"average rating" : 4.21,
+	"growth (30 days)" : 0.3,
+	"growth (60 days)" : 0.6,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 6521348,
+	"4 star ratings" : 996144,
+	"3 star ratings" : 615544,
+	"2 star ratings" : 343978,
+	"1 star ratings" : 1077860,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f4"),
+	"rank" : 10,
+	"title" : "PUBG MOBILE LITE",
+	"total ratings" : 7392911,
+	"installs" : "100.0 M",
+	"average rating" : 4.16,
+	"growth (30 days)" : 1.3,
+	"growth (60 days)" : 2.9,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 5231571,
+	"4 star ratings" : 494013,
+	"3 star ratings" : 343880,
+	"2 star ratings" : 232468,
+	"1 star ratings" : 1090976,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f5"),
+	"rank" : 11,
+	"title" : "slither.io",
+	"total ratings" : 6475640,
+	"installs" : "100.0 M",
+	"average rating" : 4.07,
+	"growth (30 days)" : 0.4,
+	"growth (60 days)" : 1,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 4089508,
+	"4 star ratings" : 765605,
+	"3 star ratings" : 486813,
+	"2 star ratings" : 250455,
+	"1 star ratings" : 883255,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f6"),
+	"rank" : 12,
+	"title" : "Gangstar Vegas: World of Crime",
+	"total ratings" : 6203689,
+	"installs" : "100.0 M",
+	"average rating" : 4.3,
+	"growth (30 days)" : 0.5,
+	"growth (60 days)" : 1.1,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 4466149,
+	"4 star ratings" : 597997,
+	"3 star ratings" : 313912,
+	"2 star ratings" : 165629,
+	"1 star ratings" : 660000,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f7"),
+	"rank" : 13,
+	"title" : "Pixel Gun 3D: FPS Shooter & Battle Royale",
+	"total ratings" : 5651287,
+	"installs" : "100.0 M",
+	"average rating" : 4.15,
+	"growth (30 days)" : 0.3,
+	"growth (60 days)" : 0.6,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 3855710,
+	"4 star ratings" : 524170,
+	"3 star ratings" : 321185,
+	"2 star ratings" : 183340,
+	"1 star ratings" : 766880,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f8"),
+	"rank" : 14,
+	"title" : "Bowmasters",
+	"total ratings" : 5245027,
+	"installs" : "100.0 M",
+	"average rating" : 4.55,
+	"growth (30 days)" : 2.3,
+	"growth (60 days)" : 4.5,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 4170692,
+	"4 star ratings" : 464285,
+	"3 star ratings" : 216008,
+	"2 star ratings" : 93697,
+	"1 star ratings" : 300341,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1f9"),
+	"rank" : 15,
+	"title" : "Standoff 2",
+	"total ratings" : 4457338,
+	"installs" : "50.0 M",
+	"average rating" : 4.54,
+	"growth (30 days)" : 6.1,
+	"growth (60 days)" : 13.7,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 3611434,
+	"4 star ratings" : 335328,
+	"3 star ratings" : 123915,
+	"2 star ratings" : 59903,
+	"1 star ratings" : 326756,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1fa"),
+	"rank" : 16,
+	"title" : "Crossy Road",
+	"total ratings" : 4456347,
+	"installs" : "100.0 M",
+	"average rating" : 4.54,
+	"growth (30 days)" : 0.1,
+	"growth (60 days)" : 0.2,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 3378135,
+	"4 star ratings" : 575185,
+	"3 star ratings" : 232942,
+	"2 star ratings" : 67203,
+	"1 star ratings" : 202879,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1fb"),
+	"rank" : 17,
+	"title" : "Banana Kong",
+	"total ratings" : 4448938,
+	"installs" : "100.0 M",
+	"average rating" : 4.57,
+	"growth (30 days)" : 0.5,
+	"growth (60 days)" : 1.2,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 3440564,
+	"4 star ratings" : 524996,
+	"3 star ratings" : 227009,
+	"2 star ratings" : 72803,
+	"1 star ratings" : 183564,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1fc"),
+	"rank" : 18,
+	"title" : "Garena Liên Quân Mobile",
+	"total ratings" : 4443546,
+	"installs" : "50.0 M",
+	"average rating" : 4.11,
+	"growth (30 days)" : 2.1,
+	"growth (60 days)" : 3.9,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 3055909,
+	"4 star ratings" : 371966,
+	"3 star ratings" : 198693,
+	"2 star ratings" : 100809,
+	"1 star ratings" : 716166,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1fd"),
+	"rank" : 19,
+	"title" : "Helix Jump",
+	"total ratings" : 4260419,
+	"installs" : "100.0 M",
+	"average rating" : 4.07,
+	"growth (30 days)" : 0,
+	"growth (60 days)" : 0.2,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 2654404,
+	"4 star ratings" : 542456,
+	"3 star ratings" : 338551,
+	"2 star ratings" : 178344,
+	"1 star ratings" : 546662,
+	"paid" : "False"
+}
+{
+	"_id" : ObjectId("60858968bb28785ed56ef1fe"),
+	"rank" : 20,
+	"title" : "War Robots. 6v6 Tactical Multiplayer Battles",
+	"total ratings" : 4193941,
+	"installs" : "50.0 M",
+	"average rating" : 4,
+	"growth (30 days)" : 0.3,
+	"growth (60 days)" : 0.7,
+	"price" : 0,
+	"category" : "GAME ACTION",
+	"5 star ratings" : 2635805,
+	"4 star ratings" : 449195,
+	"3 star ratings" : 262329,
+	"2 star ratings" : 160045,
+	"1 star ratings" : 686564,
+	"paid" : "False"
+}
+Type "it" for more
+> db.inventory.update({"price":0},{$set:{"price":12}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.inventory.find()
+{ "_id" : ObjectId("60858968bb28785ed56ef1eb"), "rank" : 1, "title" : "Garena Free Fire - The Cobra", "total ratings" : 80678661, "installs" : "500.0 M", "average rating" : 4.33, "growth (30 days)" : 2.9, "growth (60 days)" : 7.9, "price" : 12, "category" : "GAME ACTION", "5 star ratings" : 61935712, "4 star ratings" : 4478738, "3 star ratings" : 2795172, "2 star ratings" : 1814999, "1 star ratings" : 9654037, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ec"), "rank" : 2, "title" : "PUBG MOBILE: Graffiti Prank", "total ratings" : 35971961, "installs" : "100.0 M", "average rating" : 4.24, "growth (30 days)" : 2, "growth (60 days)" : 3.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 26670566, "4 star ratings" : 2109631, "3 star ratings" : 1352610, "2 star ratings" : 893674, "1 star ratings" : 4945478, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ed"), "rank" : 3, "title" : "Mobile Legends: Bang Bang", "total ratings" : 25836869, "installs" : "100.0 M", "average rating" : 4.08, "growth (30 days)" : 1.6, "growth (60 days)" : 3.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 17850942, "4 star ratings" : 1796761, "3 star ratings" : 1066095, "2 star ratings" : 725429, "1 star ratings" : 4397640, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ee"), "rank" : 4, "title" : "Brawl Stars", "total ratings" : 17181659, "installs" : "100.0 M", "average rating" : 4.27, "growth (30 days)" : 4.1, "growth (60 days)" : 6.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 12493668, "4 star ratings" : 1474319, "3 star ratings" : 741410, "2 star ratings" : 383478, "1 star ratings" : 2088781, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ef"), "rank" : 5, "title" : "Sniper 3D: Fun Free Online FPS Shooting Game", "total ratings" : 14237554, "installs" : "100.0 M", "average rating" : 4.33, "growth (30 days)" : 0.8, "growth (60 days)" : 1.8, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 9657878, "4 star ratings" : 2124544, "3 star ratings" : 1034025, "2 star ratings" : 375159, "1 star ratings" : 1045945, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f0"), "rank" : 6, "title" : "Shadow Fight 2", "total ratings" : 14048931, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.6, "growth (60 days)" : 1.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 11532143, "4 star ratings" : 961926, "3 star ratings" : 448184, "2 star ratings" : 217044, "1 star ratings" : 889631, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f1"), "rank" : 7, "title" : "Call of Duty®: Mobile - Day of Reckoning", "total ratings" : 13020115, "installs" : "100.0 M", "average rating" : 4.47, "growth (30 days)" : 2.8, "growth (60 days)" : 5.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 10079925, "4 star ratings" : 1210326, "3 star ratings" : 488294, "2 star ratings" : 261610, "1 star ratings" : 979958, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f2"), "rank" : 8, "title" : "Among Us", "total ratings" : 11298789, "installs" : "100.0 M", "average rating" : 3.65, "growth (30 days)" : 6.3, "growth (60 days)" : 12.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6173970, "4 star ratings" : 1026476, "3 star ratings" : 770574, "2 star ratings" : 614021, "1 star ratings" : 2713745, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f3"), "rank" : 9, "title" : "Temple Run 2", "total ratings" : 9554877, "installs" : "500.0 M", "average rating" : 4.21, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6521348, "4 star ratings" : 996144, "3 star ratings" : 615544, "2 star ratings" : 343978, "1 star ratings" : 1077860, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f4"), "rank" : 10, "title" : "PUBG MOBILE LITE", "total ratings" : 7392911, "installs" : "100.0 M", "average rating" : 4.16, "growth (30 days)" : 1.3, "growth (60 days)" : 2.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 5231571, "4 star ratings" : 494013, "3 star ratings" : 343880, "2 star ratings" : 232468, "1 star ratings" : 1090976, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f5"), "rank" : 11, "title" : "slither.io", "total ratings" : 6475640, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0.4, "growth (60 days)" : 1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4089508, "4 star ratings" : 765605, "3 star ratings" : 486813, "2 star ratings" : 250455, "1 star ratings" : 883255, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f6"), "rank" : 12, "title" : "Gangstar Vegas: World of Crime", "total ratings" : 6203689, "installs" : "100.0 M", "average rating" : 4.3, "growth (30 days)" : 0.5, "growth (60 days)" : 1.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4466149, "4 star ratings" : 597997, "3 star ratings" : 313912, "2 star ratings" : 165629, "1 star ratings" : 660000, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f7"), "rank" : 13, "title" : "Pixel Gun 3D: FPS Shooter & Battle Royale", "total ratings" : 5651287, "installs" : "100.0 M", "average rating" : 4.15, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3855710, "4 star ratings" : 524170, "3 star ratings" : 321185, "2 star ratings" : 183340, "1 star ratings" : 766880, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f8"), "rank" : 14, "title" : "Bowmasters", "total ratings" : 5245027, "installs" : "100.0 M", "average rating" : 4.55, "growth (30 days)" : 2.3, "growth (60 days)" : 4.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4170692, "4 star ratings" : 464285, "3 star ratings" : 216008, "2 star ratings" : 93697, "1 star ratings" : 300341, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f9"), "rank" : 15, "title" : "Standoff 2", "total ratings" : 4457338, "installs" : "50.0 M", "average rating" : 4.54, "growth (30 days)" : 6.1, "growth (60 days)" : 13.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3611434, "4 star ratings" : 335328, "3 star ratings" : 123915, "2 star ratings" : 59903, "1 star ratings" : 326756, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fa"), "rank" : 16, "title" : "Crossy Road", "total ratings" : 4456347, "installs" : "100.0 M", "average rating" : 4.54, "growth (30 days)" : 0.1, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3378135, "4 star ratings" : 575185, "3 star ratings" : 232942, "2 star ratings" : 67203, "1 star ratings" : 202879, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fb"), "rank" : 17, "title" : "Banana Kong", "total ratings" : 4448938, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.5, "growth (60 days)" : 1.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3440564, "4 star ratings" : 524996, "3 star ratings" : 227009, "2 star ratings" : 72803, "1 star ratings" : 183564, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fc"), "rank" : 18, "title" : "Garena Liên Quân Mobile", "total ratings" : 4443546, "installs" : "50.0 M", "average rating" : 4.11, "growth (30 days)" : 2.1, "growth (60 days)" : 3.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3055909, "4 star ratings" : 371966, "3 star ratings" : 198693, "2 star ratings" : 100809, "1 star ratings" : 716166, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fd"), "rank" : 19, "title" : "Helix Jump", "total ratings" : 4260419, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2654404, "4 star ratings" : 542456, "3 star ratings" : 338551, "2 star ratings" : 178344, "1 star ratings" : 546662, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fe"), "rank" : 20, "title" : "War Robots. 6v6 Tactical Multiplayer Battles", "total ratings" : 4193941, "installs" : "50.0 M", "average rating" : 4, "growth (30 days)" : 0.3, "growth (60 days)" : 0.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2635805, "4 star ratings" : 449195, "3 star ratings" : 262329, "2 star ratings" : 160045, "1 star ratings" : 686564, "paid" : "False" }
+Type "it" for more
+> db.inventory.remove({"price":12})
+WriteResult({ "nRemoved" : 1 })
+> db.inventory.find()
+{ "_id" : ObjectId("60858968bb28785ed56ef1ec"), "rank" : 2, "title" : "PUBG MOBILE: Graffiti Prank", "total ratings" : 35971961, "installs" : "100.0 M", "average rating" : 4.24, "growth (30 days)" : 2, "growth (60 days)" : 3.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 26670566, "4 star ratings" : 2109631, "3 star ratings" : 1352610, "2 star ratings" : 893674, "1 star ratings" : 4945478, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ed"), "rank" : 3, "title" : "Mobile Legends: Bang Bang", "total ratings" : 25836869, "installs" : "100.0 M", "average rating" : 4.08, "growth (30 days)" : 1.6, "growth (60 days)" : 3.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 17850942, "4 star ratings" : 1796761, "3 star ratings" : 1066095, "2 star ratings" : 725429, "1 star ratings" : 4397640, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ee"), "rank" : 4, "title" : "Brawl Stars", "total ratings" : 17181659, "installs" : "100.0 M", "average rating" : 4.27, "growth (30 days)" : 4.1, "growth (60 days)" : 6.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 12493668, "4 star ratings" : 1474319, "3 star ratings" : 741410, "2 star ratings" : 383478, "1 star ratings" : 2088781, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ef"), "rank" : 5, "title" : "Sniper 3D: Fun Free Online FPS Shooting Game", "total ratings" : 14237554, "installs" : "100.0 M", "average rating" : 4.33, "growth (30 days)" : 0.8, "growth (60 days)" : 1.8, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 9657878, "4 star ratings" : 2124544, "3 star ratings" : 1034025, "2 star ratings" : 375159, "1 star ratings" : 1045945, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f0"), "rank" : 6, "title" : "Shadow Fight 2", "total ratings" : 14048931, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.6, "growth (60 days)" : 1.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 11532143, "4 star ratings" : 961926, "3 star ratings" : 448184, "2 star ratings" : 217044, "1 star ratings" : 889631, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f1"), "rank" : 7, "title" : "Call of Duty®: Mobile - Day of Reckoning", "total ratings" : 13020115, "installs" : "100.0 M", "average rating" : 4.47, "growth (30 days)" : 2.8, "growth (60 days)" : 5.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 10079925, "4 star ratings" : 1210326, "3 star ratings" : 488294, "2 star ratings" : 261610, "1 star ratings" : 979958, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f2"), "rank" : 8, "title" : "Among Us", "total ratings" : 11298789, "installs" : "100.0 M", "average rating" : 3.65, "growth (30 days)" : 6.3, "growth (60 days)" : 12.3, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6173970, "4 star ratings" : 1026476, "3 star ratings" : 770574, "2 star ratings" : 614021, "1 star ratings" : 2713745, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f3"), "rank" : 9, "title" : "Temple Run 2", "total ratings" : 9554877, "installs" : "500.0 M", "average rating" : 4.21, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 6521348, "4 star ratings" : 996144, "3 star ratings" : 615544, "2 star ratings" : 343978, "1 star ratings" : 1077860, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f4"), "rank" : 10, "title" : "PUBG MOBILE LITE", "total ratings" : 7392911, "installs" : "100.0 M", "average rating" : 4.16, "growth (30 days)" : 1.3, "growth (60 days)" : 2.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 5231571, "4 star ratings" : 494013, "3 star ratings" : 343880, "2 star ratings" : 232468, "1 star ratings" : 1090976, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f5"), "rank" : 11, "title" : "slither.io", "total ratings" : 6475640, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0.4, "growth (60 days)" : 1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4089508, "4 star ratings" : 765605, "3 star ratings" : 486813, "2 star ratings" : 250455, "1 star ratings" : 883255, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f6"), "rank" : 12, "title" : "Gangstar Vegas: World of Crime", "total ratings" : 6203689, "installs" : "100.0 M", "average rating" : 4.3, "growth (30 days)" : 0.5, "growth (60 days)" : 1.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4466149, "4 star ratings" : 597997, "3 star ratings" : 313912, "2 star ratings" : 165629, "1 star ratings" : 660000, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f7"), "rank" : 13, "title" : "Pixel Gun 3D: FPS Shooter & Battle Royale", "total ratings" : 5651287, "installs" : "100.0 M", "average rating" : 4.15, "growth (30 days)" : 0.3, "growth (60 days)" : 0.6, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3855710, "4 star ratings" : 524170, "3 star ratings" : 321185, "2 star ratings" : 183340, "1 star ratings" : 766880, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f8"), "rank" : 14, "title" : "Bowmasters", "total ratings" : 5245027, "installs" : "100.0 M", "average rating" : 4.55, "growth (30 days)" : 2.3, "growth (60 days)" : 4.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4170692, "4 star ratings" : 464285, "3 star ratings" : 216008, "2 star ratings" : 93697, "1 star ratings" : 300341, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1f9"), "rank" : 15, "title" : "Standoff 2", "total ratings" : 4457338, "installs" : "50.0 M", "average rating" : 4.54, "growth (30 days)" : 6.1, "growth (60 days)" : 13.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3611434, "4 star ratings" : 335328, "3 star ratings" : 123915, "2 star ratings" : 59903, "1 star ratings" : 326756, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fa"), "rank" : 16, "title" : "Crossy Road", "total ratings" : 4456347, "installs" : "100.0 M", "average rating" : 4.54, "growth (30 days)" : 0.1, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3378135, "4 star ratings" : 575185, "3 star ratings" : 232942, "2 star ratings" : 67203, "1 star ratings" : 202879, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fb"), "rank" : 17, "title" : "Banana Kong", "total ratings" : 4448938, "installs" : "100.0 M", "average rating" : 4.57, "growth (30 days)" : 0.5, "growth (60 days)" : 1.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3440564, "4 star ratings" : 524996, "3 star ratings" : 227009, "2 star ratings" : 72803, "1 star ratings" : 183564, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fc"), "rank" : 18, "title" : "Garena Liên Quân Mobile", "total ratings" : 4443546, "installs" : "50.0 M", "average rating" : 4.11, "growth (30 days)" : 2.1, "growth (60 days)" : 3.9, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 3055909, "4 star ratings" : 371966, "3 star ratings" : 198693, "2 star ratings" : 100809, "1 star ratings" : 716166, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fd"), "rank" : 19, "title" : "Helix Jump", "total ratings" : 4260419, "installs" : "100.0 M", "average rating" : 4.07, "growth (30 days)" : 0, "growth (60 days)" : 0.2, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2654404, "4 star ratings" : 542456, "3 star ratings" : 338551, "2 star ratings" : 178344, "1 star ratings" : 546662, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1fe"), "rank" : 20, "title" : "War Robots. 6v6 Tactical Multiplayer Battles", "total ratings" : 4193941, "installs" : "50.0 M", "average rating" : 4, "growth (30 days)" : 0.3, "growth (60 days)" : 0.7, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2635805, "4 star ratings" : 449195, "3 star ratings" : 262329, "2 star ratings" : 160045, "1 star ratings" : 686564, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef1ff"), "rank" : 21, "title" : "MORTAL KOMBAT: The Ultimate Fighting Game!", "total ratings" : 4162892, "installs" : "50.0 M", "average rating" : 4.21, "growth (30 days)" : 0.6, "growth (60 days)" : 1.1, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 2838747, "4 star ratings" : 455601, "3 star ratings" : 251087, "2 star ratings" : 133593, "1 star ratings" : 483861, "paid" : "False" }
+Type "it" for more
+> db.inventory.aggregate([{$group:{_id:"$rank"}}])
+{ "_id" : 96 }
+{ "_id" : 94 }
+{ "_id" : 1 }
+{ "_id" : 93 }
+{ "_id" : 91 }
+{ "_id" : 90 }
+{ "_id" : 89 }
+{ "_id" : 88 }
+{ "_id" : 87 }
+{ "_id" : 86 }
+{ "_id" : 85 }
+{ "_id" : 84 }
+{ "_id" : 83 }
+{ "_id" : 82 }
+{ "_id" : 81 }
+{ "_id" : 80 }
+{ "_id" : 78 }
+{ "_id" : 99 }
+{ "_id" : 77 }
+{ "_id" : 76 }
+
+> db.inventory.mapReduce(function(){emit(this.rank,this.n);},function(key,values){return Array.sum(values)},{query:{rank:14},out:"games"})
+{
+	"result" : "games",
+	"timeMillis" : 199,
+	"counts" : {
+		"input" : 19,
+		"emit" : 19,
+		"reduce" : 1,
+		"output" : 1
+	},
+	"ok" : 1
+}
+> show collections
+games
+inventory
+> db.games.find()
+{ "_id" : 14, "value" : NaN }
+>  db.inventory.aggregate({$match:{rank:14}})
+{ "_id" : ObjectId("60858968bb28785ed56ef1f8"), "rank" : 14, "title" : "Bowmasters", "total ratings" : 5245027, "installs" : "100.0 M", "average rating" : 4.55, "growth (30 days)" : 2.3, "growth (60 days)" : 4.5, "price" : 0, "category" : "GAME ACTION", "5 star ratings" : 4170692, "4 star ratings" : 464285, "3 star ratings" : 216008, "2 star ratings" : 93697, "1 star ratings" : 300341, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef25c"), "rank" : 14, "title" : "Benji Bananas", "total ratings" : 1161941, "installs" : "50.0 M", "average rating" : 4.41, "growth (30 days)" : 0.1, "growth (60 days)" : 0.3, "price" : 0, "category" : "GAME ADVENTURE", "5 star ratings" : 850589, "4 star ratings" : 129736, "3 star ratings" : 74870, "2 star ratings" : 25709, "1 star ratings" : 81035, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef2c0"), "rank" : 14, "title" : "Granny", "total ratings" : 3195259, "installs" : "100.0 M", "average rating" : 4.28, "growth (30 days)" : 1.5, "growth (60 days)" : 3.2, "price" : 0, "category" : "GAME ARCADE", "5 star ratings" : 2320047, "4 star ratings" : 273118, "3 star ratings" : 150510, "2 star ratings" : 92447, "1 star ratings" : 359134, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef324"), "rank" : 14, "title" : "Bingo Blitz™️ - Bingo Games", "total ratings" : 758481, "installs" : "10.0 M", "average rating" : 4.56, "growth (30 days)" : 1.8, "growth (60 days)" : 4.1, "price" : 0, "category" : "GAME BOARD", "5 star ratings" : 577133, "4 star ratings" : 101989, "3 star ratings" : 34574, "2 star ratings" : 14423, "1 star ratings" : 30360, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef38c"), "rank" : 14, "title" : "Solitaire", "total ratings" : 497732, "installs" : "50.0 M", "average rating" : 4.65, "growth (30 days)" : 1.1, "growth (60 days)" : 2.6, "price" : 0, "category" : "GAME CARD", "5 star ratings" : 1105281, "4 star ratings" : 311948, "3 star ratings" : 78869, "2 star ratings" : 24813, "1 star ratings" : 55435, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef38d"), "rank" : 14, "title" : "Solitaire", "total ratings" : 497732, "installs" : "50.0 M", "average rating" : 4.65, "growth (30 days)" : 1.1, "growth (60 days)" : 2.6, "price" : 0, "category" : "GAME CARD", "5 star ratings" : 432066, "4 star ratings" : 90340, "3 star ratings" : 39912, "2 star ratings" : 15917, "1 star ratings" : 69906, "paid" : "False" }
+{ "_id" : ObjectId("60858968bb28785ed56ef38e"), "rank" : 14, "title" : "Solitaire", "total ratings" : 497732, "installs" : "50.0 M", "average rating" : 4.65, "growth (30 days)" : 1.1, "growth (60 days)" : 2.6, "price" : 0, "category" : "GAME CARD", "5 star ratings" : 408570, "4 star ratings" : 47577, "3 star ratings" : 16761, "2 star ratings" : 6353, "1 star ratings" : 18469, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef402"), "rank" : 14, "title" : "Jackpot Slot Machines - Slots Era™ Vegas Casino", "total ratings" : 638226, "installs" : "5.0 M", "average rating" : 4.56, "growth (30 days)" : 0.9, "growth (60 days)" : 1.7, "price" : 0, "category" : "GAME CASINO", "5 star ratings" : 467998, "4 star ratings" : 104943, "3 star ratings" : 37982, "2 star ratings" : 7955, "1 star ratings" : 19345, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef466"), "rank" : 14, "title" : "Coin Master", "total ratings" : 5482333, "installs" : "100.0 M", "average rating" : 4.35, "growth (30 days)" : 3.3, "growth (60 days)" : 8.1, "price" : 0, "category" : "GAME CASUAL", "5 star ratings" : 4000193, "4 star ratings" : 562618, "3 star ratings" : 270061, "2 star ratings" : 119111, "1 star ratings" : 530347, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef4cc"), "rank" : 14, "title" : "Baby Panda World", "total ratings" : 184654, "installs" : "50.0 M", "average rating" : 4.4, "growth (30 days)" : 11.9, "growth (60 days)" : 25.3, "price" : 0, "category" : "GAME EDUCATIONAL", "5 star ratings" : 145021, "4 star ratings" : 10174, "3 star ratings" : 6530, "2 star ratings" : 4728, "1 star ratings" : 18198, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef530"), "rank" : 14, "title" : "Piano Music Go 2020: EDM Piano Games", "total ratings" : 374105, "installs" : "50.0 M", "average rating" : 4.37, "growth (30 days)" : 2.1, "growth (60 days)" : 4.9, "price" : 0, "category" : "GAME MUSIC", "5 star ratings" : 275763, "4 star ratings" : 36288, "3 star ratings" : 19470, "2 star ratings" : 10782, "1 star ratings" : 31799, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef594"), "rank" : 14, "title" : "ضربة معلم - لعبة الغاز مسلية", "total ratings" : 1654125, "installs" : "10.0 M", "average rating" : 4.61, "growth (30 days)" : 1.7, "growth (60 days)" : 3.5, "price" : 0, "category" : "GAME PUZZLE", "5 star ratings" : 1378829, "4 star ratings" : 98456, "3 star ratings" : 66575, "2 star ratings" : 30993, "1 star ratings" : 79269, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef5f9"), "rank" : 14, "title" : "CSR Racing", "total ratings" : 2489649, "installs" : "50.0 M", "average rating" : 4.52, "growth (30 days)" : 0, "growth (60 days)" : 0, "price" : 0, "category" : "GAME RACING", "5 star ratings" : 1948969, "4 star ratings" : 240394, "3 star ratings" : 105409, "2 star ratings" : 35133, "1 star ratings" : 159742, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef65d"), "rank" : 14, "title" : "RAID: Shadow Legends", "total ratings" : 1310535, "installs" : "10.0 M", "average rating" : 4.26, "growth (30 days)" : 2.8, "growth (60 days)" : 5.5, "price" : 0, "category" : "GAME ROLE PLAYING", "5 star ratings" : 898437, "4 star ratings" : 173883, "3 star ratings" : 61375, "2 star ratings" : 37136, "1 star ratings" : 139701, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef6c1"), "rank" : 14, "title" : "Bus Simulator: Original", "total ratings" : 1485179, "installs" : "50.0 M", "average rating" : 4.07, "growth (30 days)" : 0.1, "growth (60 days)" : 0.1, "price" : 0, "category" : "GAME SIMULATION", "5 star ratings" : 945229, "4 star ratings" : 165319, "3 star ratings" : 112969, "2 star ratings" : 56289, "1 star ratings" : 205369, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef725"), "rank" : 14, "title" : "New Star Soccer", "total ratings" : 2267369, "installs" : "10.0 M", "average rating" : 4.62, "growth (30 days)" : 0.4, "growth (60 days)" : 0.7, "price" : 0, "category" : "GAME SPORTS", "5 star ratings" : 1736140, "4 star ratings" : 337201, "3 star ratings" : 109127, "2 star ratings" : 26236, "1 star ratings" : 58663, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef789"), "rank" : 14, "title" : "State of Survival: Survive the Zombie Apocalypse", "total ratings" : 1712043, "installs" : "50.0 M", "average rating" : 4.43, "growth (30 days)" : 4.5, "growth (60 days)" : 10.3, "price" : 0, "category" : "GAME STRATEGY", "5 star ratings" : 1218235, "4 star ratings" : 270013, "3 star ratings" : 81840, "2 star ratings" : 31300, "1 star ratings" : 110652, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef7ed"), "rank" : 14, "title" : "Trivia Crack 2", "total ratings" : 335412, "installs" : "10.0 M", "average rating" : 4.37, "growth (30 days)" : 1.6, "growth (60 days)" : 4, "price" : 0, "category" : "GAME TRIVIA", "5 star ratings" : 227938, "4 star ratings" : 56261, "3 star ratings" : 20466, "2 star ratings" : 8502, "1 star ratings" : 22243, "paid" : "False" }
+{ "_id" : ObjectId("60858969bb28785ed56ef851"), "rank" : 14, "title" : "وصلة - لعبة كلمات متقاطعة", "total ratings" : 743325, "installs" : "5.0 M", "average rating" : 4.63, "growth (30 days)" : 0.5, "growth (60 days)" : 1, "price" : 0, "category" : "GAME WORD", "5 star ratings" : 622699, "4 star ratings" : 42507, "3 star ratings" : 33642, "2 star ratings" : 11833, "1 star ratings" : 32642, "paid" : "False" }
+> 
+
